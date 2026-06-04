@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #0A0A0F;
+    color: #F0F0F5;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #111118; }
+  ::-webkit-scrollbar-thumb { background: #32324A; border-radius: 2px; }
+}
+
+@layer components {
+  .card {
+    @apply bg-ink-900 border border-ink-700 rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply bg-volt-400 text-ink-950 font-display font-semibold px-6 py-3 rounded-xl
+           hover:bg-volt-500 transition-all duration-200 active:scale-95 cursor-pointer;
+  }
+
+  .btn-ghost {
+    @apply border border-ink-600 text-silver-300 font-body px-6 py-3 rounded-xl
+           hover:border-volt-400 hover:text-volt-400 transition-all duration-200 cursor-pointer;
+  }
+
+  .input {
+    @apply w-full bg-ink-800 border border-ink-600 text-silver-100 placeholder-silver-500
+           rounded-xl px-4 py-3 font-body text-sm
+           focus:outline-none focus:border-volt-400 focus:ring-1 focus:ring-volt-400
+           transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-silver-400 text-xs font-display font-medium uppercase tracking-widest mb-2;
+  }
+
+  .stat-card {
+    @apply card p-6 flex flex-col gap-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium;
+  }
+}
+
+/* Glow effect on volt elements */
+.volt-glow {
+  box-shadow: 0 0 20px rgba(200, 255, 0, 0.15);
+}
+
+/* Number font for amounts */
+.amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum';
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(#111118, #111118) padding-box,
+              linear-gradient(135deg, #C8FF00, #32324A, #C8FF00) border-box;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+}
+
+.stagger-1 { animation-delay: 0.05s; opacity: 0; }
+.stagger-2 { animation-delay: 0.1s;  opacity: 0; }
+.stagger-3 { animation-delay: 0.15s; opacity: 0; }
+.stagger-4 { animation-delay: 0.2s;  opacity: 0; }
+.stagger-5 { animation-delay: 0.25s; opacity: 0; }
